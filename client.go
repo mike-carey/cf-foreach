@@ -6,8 +6,6 @@ import (
 	"github.com/mike-carey/cf-foreach/foreach"
 )
 
-//go:generate ifacemaker -f client.go -s Client -i CFForEach -p cfforeach -o interface.go
-
 type Client struct {
 	CFClient cf.CFClient
 }
