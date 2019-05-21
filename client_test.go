@@ -33,7 +33,7 @@ var _ = Describe("CFForeachClient", func() {
 
 		fakeClient.AppByGuidReturns(app, nil)
 
-		apps, errs := client.ForEachServiceBindingToApp([]cfclient.ServiceBinding{sb})
+		apps, errs := client.ServiceBindingToApp([]cfclient.ServiceBinding{sb})
 
 		Expect(errs).To(BeEmpty())
 		Expect(apps).Should(ConsistOf(app))

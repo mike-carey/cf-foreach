@@ -10,7 +10,7 @@ type Client struct {
 	CFClient cf.CFClient
 }
 
-func (c *Client) ForEachServiceBindingToApp(serviceBindings []cfclient.ServiceBinding) ([]cfclient.App, []error) {
+func (c *Client) ServiceBindingToApp(serviceBindings []cfclient.ServiceBinding) ([]cfclient.App, []error) {
 	return foreach.ServiceBindingToApp(serviceBindings, func(serviceBinding cfclient.ServiceBinding) (cfclient.App, error) {
 		return c.CFClient.AppByGuid(serviceBinding.AppGuid)
 	})

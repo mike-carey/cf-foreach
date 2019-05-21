@@ -9,16 +9,16 @@ import (
 )
 
 type FakeCFForEach struct {
-	ForEachServiceBindingToAppStub        func([]cfclient.ServiceBinding) ([]cfclient.App, []error)
-	forEachServiceBindingToAppMutex       sync.RWMutex
-	forEachServiceBindingToAppArgsForCall []struct {
+	ServiceBindingToAppStub        func([]cfclient.ServiceBinding) ([]cfclient.App, []error)
+	serviceBindingToAppMutex       sync.RWMutex
+	serviceBindingToAppArgsForCall []struct {
 		arg1 []cfclient.ServiceBinding
 	}
-	forEachServiceBindingToAppReturns struct {
+	serviceBindingToAppReturns struct {
 		result1 []cfclient.App
 		result2 []error
 	}
-	forEachServiceBindingToAppReturnsOnCall map[int]struct {
+	serviceBindingToAppReturnsOnCall map[int]struct {
 		result1 []cfclient.App
 		result2 []error
 	}
@@ -26,69 +26,69 @@ type FakeCFForEach struct {
 	invocationsMutex sync.RWMutex
 }
 
-func (fake *FakeCFForEach) ForEachServiceBindingToApp(arg1 []cfclient.ServiceBinding) ([]cfclient.App, []error) {
+func (fake *FakeCFForEach) ServiceBindingToApp(arg1 []cfclient.ServiceBinding) ([]cfclient.App, []error) {
 	var arg1Copy []cfclient.ServiceBinding
 	if arg1 != nil {
 		arg1Copy = make([]cfclient.ServiceBinding, len(arg1))
 		copy(arg1Copy, arg1)
 	}
-	fake.forEachServiceBindingToAppMutex.Lock()
-	ret, specificReturn := fake.forEachServiceBindingToAppReturnsOnCall[len(fake.forEachServiceBindingToAppArgsForCall)]
-	fake.forEachServiceBindingToAppArgsForCall = append(fake.forEachServiceBindingToAppArgsForCall, struct {
+	fake.serviceBindingToAppMutex.Lock()
+	ret, specificReturn := fake.serviceBindingToAppReturnsOnCall[len(fake.serviceBindingToAppArgsForCall)]
+	fake.serviceBindingToAppArgsForCall = append(fake.serviceBindingToAppArgsForCall, struct {
 		arg1 []cfclient.ServiceBinding
 	}{arg1Copy})
-	fake.recordInvocation("ForEachServiceBindingToApp", []interface{}{arg1Copy})
-	fake.forEachServiceBindingToAppMutex.Unlock()
-	if fake.ForEachServiceBindingToAppStub != nil {
-		return fake.ForEachServiceBindingToAppStub(arg1)
+	fake.recordInvocation("ServiceBindingToApp", []interface{}{arg1Copy})
+	fake.serviceBindingToAppMutex.Unlock()
+	if fake.ServiceBindingToAppStub != nil {
+		return fake.ServiceBindingToAppStub(arg1)
 	}
 	if specificReturn {
 		return ret.result1, ret.result2
 	}
-	fakeReturns := fake.forEachServiceBindingToAppReturns
+	fakeReturns := fake.serviceBindingToAppReturns
 	return fakeReturns.result1, fakeReturns.result2
 }
 
-func (fake *FakeCFForEach) ForEachServiceBindingToAppCallCount() int {
-	fake.forEachServiceBindingToAppMutex.RLock()
-	defer fake.forEachServiceBindingToAppMutex.RUnlock()
-	return len(fake.forEachServiceBindingToAppArgsForCall)
+func (fake *FakeCFForEach) ServiceBindingToAppCallCount() int {
+	fake.serviceBindingToAppMutex.RLock()
+	defer fake.serviceBindingToAppMutex.RUnlock()
+	return len(fake.serviceBindingToAppArgsForCall)
 }
 
-func (fake *FakeCFForEach) ForEachServiceBindingToAppCalls(stub func([]cfclient.ServiceBinding) ([]cfclient.App, []error)) {
-	fake.forEachServiceBindingToAppMutex.Lock()
-	defer fake.forEachServiceBindingToAppMutex.Unlock()
-	fake.ForEachServiceBindingToAppStub = stub
+func (fake *FakeCFForEach) ServiceBindingToAppCalls(stub func([]cfclient.ServiceBinding) ([]cfclient.App, []error)) {
+	fake.serviceBindingToAppMutex.Lock()
+	defer fake.serviceBindingToAppMutex.Unlock()
+	fake.ServiceBindingToAppStub = stub
 }
 
-func (fake *FakeCFForEach) ForEachServiceBindingToAppArgsForCall(i int) []cfclient.ServiceBinding {
-	fake.forEachServiceBindingToAppMutex.RLock()
-	defer fake.forEachServiceBindingToAppMutex.RUnlock()
-	argsForCall := fake.forEachServiceBindingToAppArgsForCall[i]
+func (fake *FakeCFForEach) ServiceBindingToAppArgsForCall(i int) []cfclient.ServiceBinding {
+	fake.serviceBindingToAppMutex.RLock()
+	defer fake.serviceBindingToAppMutex.RUnlock()
+	argsForCall := fake.serviceBindingToAppArgsForCall[i]
 	return argsForCall.arg1
 }
 
-func (fake *FakeCFForEach) ForEachServiceBindingToAppReturns(result1 []cfclient.App, result2 []error) {
-	fake.forEachServiceBindingToAppMutex.Lock()
-	defer fake.forEachServiceBindingToAppMutex.Unlock()
-	fake.ForEachServiceBindingToAppStub = nil
-	fake.forEachServiceBindingToAppReturns = struct {
+func (fake *FakeCFForEach) ServiceBindingToAppReturns(result1 []cfclient.App, result2 []error) {
+	fake.serviceBindingToAppMutex.Lock()
+	defer fake.serviceBindingToAppMutex.Unlock()
+	fake.ServiceBindingToAppStub = nil
+	fake.serviceBindingToAppReturns = struct {
 		result1 []cfclient.App
 		result2 []error
 	}{result1, result2}
 }
 
-func (fake *FakeCFForEach) ForEachServiceBindingToAppReturnsOnCall(i int, result1 []cfclient.App, result2 []error) {
-	fake.forEachServiceBindingToAppMutex.Lock()
-	defer fake.forEachServiceBindingToAppMutex.Unlock()
-	fake.ForEachServiceBindingToAppStub = nil
-	if fake.forEachServiceBindingToAppReturnsOnCall == nil {
-		fake.forEachServiceBindingToAppReturnsOnCall = make(map[int]struct {
+func (fake *FakeCFForEach) ServiceBindingToAppReturnsOnCall(i int, result1 []cfclient.App, result2 []error) {
+	fake.serviceBindingToAppMutex.Lock()
+	defer fake.serviceBindingToAppMutex.Unlock()
+	fake.ServiceBindingToAppStub = nil
+	if fake.serviceBindingToAppReturnsOnCall == nil {
+		fake.serviceBindingToAppReturnsOnCall = make(map[int]struct {
 			result1 []cfclient.App
 			result2 []error
 		})
 	}
-	fake.forEachServiceBindingToAppReturnsOnCall[i] = struct {
+	fake.serviceBindingToAppReturnsOnCall[i] = struct {
 		result1 []cfclient.App
 		result2 []error
 	}{result1, result2}
@@ -97,8 +97,8 @@ func (fake *FakeCFForEach) ForEachServiceBindingToAppReturnsOnCall(i int, result
 func (fake *FakeCFForEach) Invocations() map[string][][]interface{} {
 	fake.invocationsMutex.RLock()
 	defer fake.invocationsMutex.RUnlock()
-	fake.forEachServiceBindingToAppMutex.RLock()
-	defer fake.forEachServiceBindingToAppMutex.RUnlock()
+	fake.serviceBindingToAppMutex.RLock()
+	defer fake.serviceBindingToAppMutex.RUnlock()
 	copiedInvocations := map[string][][]interface{}{}
 	for key, value := range fake.invocations {
 		copiedInvocations[key] = value

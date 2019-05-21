@@ -8,5 +8,5 @@ import (
 
 // CFForEach ...
 type CFForEach interface {
-	ForEachServiceBindingToApp(serviceBindings []cfclient.ServiceBinding) ([]cfclient.App, []error)
+	ServiceBindingToApp(serviceBindings []cfclient.ServiceBinding) ([]cfclient.App, []error)
 }
